@@ -1,5 +1,4 @@
 ---
 title: Garden Gim
+icon: 🏠
 ---
-
-Garden Gim
