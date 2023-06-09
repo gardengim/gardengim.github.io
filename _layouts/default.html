@@ -2,13 +2,16 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>{{ page.title }}</title>
+		<title>{{ page.icon }} {{ page.title }}</title>
 		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 	</head>
 	<body>
 		<header>
 			<span class="page-icon">{{ page.icon }}</span>
+			<br>
 			<span class="page-title">{{ page.title }}</span>
+			<hr>
 		</header>
 		<main>
 			{{ content }}
