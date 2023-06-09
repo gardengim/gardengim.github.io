@@ -1,1 +1,8 @@
 title: Garden Gim
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
