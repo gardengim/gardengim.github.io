@@ -1,0 +1,5 @@
+---
+title: Donate
+icon: 💵
+---
+
