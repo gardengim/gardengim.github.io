@@ -2,6 +2,8 @@
 title: Garden Gim
 icon: 🏠
 ---
-# Pages
-{% pagelink /about %}  
-{% pagelink /donate %}
+
+# {% linkpage /pages %}
+## {% linkpage /pages/projects %}
+## {% linkpage /pages/about %}  
+## {% linkpage /pages/donate %}  
