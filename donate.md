@@ -3,8 +3,7 @@ title: Donate
 icon: 💵
 ---
 
-# 📺 Watch Advertisement
-
+# {% pagelink /donate/advertisement %}
 
 
 # ☕ Ko-fi
