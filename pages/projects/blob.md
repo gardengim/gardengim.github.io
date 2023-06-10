@@ -1,0 +1,4 @@
+---
+title: Blob
+icon: 🦠
+---
