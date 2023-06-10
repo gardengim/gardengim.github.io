@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="/assets/css/style.css">
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22> {{ page.icon }} </text></svg>">
-		<title>{{ page.title }}</title>
-	</head>
-	<body>
-		<header>
-			<span class="page-icon">{{ page.icon }}</span>
-			<br>
-			<span class="page-title"><b>{{ page.title }}</b></span>
-			<hr>
-		</header>
-		<main>
-			{{ content }}
-		</main>
-		<footer>
-			<hr>
-			{% pagelink / %}
-			<br>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22> {{ page.icon }} </text></svg>">
+	<title>{{ page.title }}</title>
+</head>
+
+<body>
+	<header>
+		<span class="page-icon">{{ page.icon }}</span>
+		<br>
+		<span class="page-title"><b>{{ page.title }}</b></span>
+		<hr>
+	</header>
+	<main>
+		{{ content }}
+	</main>
+	<footer>
+		<hr>
+		<p>
+			{% linkpage / %}
+			{% assign url = page.url | slice: 1, page.url.size | remove: ".html" %}
+			{% assign pages = url | split: "/" %}
+			{% assign path = "" %}
+			{% for pagename in pages %}
+			{% assign path = path | append: "/" | append: pagename %}
+			/{% linkpageblock %}
+			{{ path }}
+			{% endlinkpageblock %}
+			{% endfor %}
+		</p>
+		<p>
 			<a href="https://github.com/gardengim">🐙 <u>github.com/gardengim</u></a>
-		</footer>
-	</body>
+		</p>
+	</footer>
+</body>
+
 </html>
