@@ -14,7 +14,7 @@ module Jekyll
       title = page["title"]
       icon = page["icon"]
 
-      "<a href='#{@page_url}'>#{icon} #{title}</a>"
+      "<a href='#{@page_url}'>#{icon} <u>#{title}</u></a>"
     end
   end
 end
