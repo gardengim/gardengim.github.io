@@ -1,4 +1,4 @@
 ---
-title: Blob
+title: blob
 icon: 🦠
 ---
