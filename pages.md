@@ -2,12 +2,12 @@
 title: Pages
 icon: 📄
 ---
+
 {% for page_ in site.pages %}
-{% if page_.path contains 'pages/' %}
-{% unless page_.path contains 'projects/' %}
+{% assign slashes = page_.path | split: '/' | size | minus: 1 %}
+{% if slashes == 1 %}
 {% linkpageblock %}
 {{ page_.url | remove: ".html" }}
 {% endlinkpageblock %}
-{% endunless %}
 {% endif %}
 {% endfor %}
