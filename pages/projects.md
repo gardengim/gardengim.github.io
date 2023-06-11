@@ -1,6 +1,6 @@
 ---
 title: Projects
-icon: ❤️‍🔥
+icon: ⌨️
 ---
 {% for page_ in site.pages %}
 {% if page_.path contains 'pages/projects/' %}
