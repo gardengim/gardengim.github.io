@@ -6,4 +6,4 @@ icon: 🏠
 # {% linkpage /pages %}
 ## {% linkpage /pages/projects %}
 ## {% linkpage /pages/about %}  
-## {% linkpage /pages/donate %}  
+## {% linkpage /pages/donation %}  
