@@ -2,6 +2,10 @@
 title: X Programming Language
 icon: ❌
 ---
+# Concepts
+- Compiled
+- Strictly, statically typed
+- Memory-safe
 
 # Example Code
 ```
