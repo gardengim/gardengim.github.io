@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-	--background-color: #DDDCDB;
+	--background-color: #EEEDEC;
 	--color: #131211;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background-color: #131211;
-		--color: #DDDCDB;
+		--color: #EEEDEC;
 	}
 }
 
@@ -27,7 +27,7 @@ html {
 	html {
 		padding: 0 5% 0 5%;
 
-		font-size: 1.5em;
+		font-size: 1.75em;
 	}
 }
 
