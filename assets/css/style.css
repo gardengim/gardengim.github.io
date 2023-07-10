@@ -45,6 +45,10 @@ hr {
 	opacity: 0.5;
 }
 
+svg {
+	fill: var(--color);
+}
+
 .page-title {
 	font-size: 2.5em;
 }
