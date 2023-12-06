@@ -60,15 +60,8 @@
 
 		pointLight.position.copy(pos);
 	}
-
-	container.parentElement.onmousemove = (event) => {
-		movePointLightToVector2(
-			new THREE.Vector2(
-				(event.clientX / window.innerWidth) * 2 - 1,
-				-(event.clientY / window.innerHeight) * 2 + 1,
-			),
-		);
-	};
+	
+	container.addEventListener("mousemove", movePointLightToClientXY);
 
 	window.onresize = () => {
 		camera.aspect = window.innerWidth / window.innerHeight;
