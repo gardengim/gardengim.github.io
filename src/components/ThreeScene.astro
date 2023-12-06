@@ -62,6 +62,7 @@
 	}
 	
 	container.addEventListener("mousemove", movePointLightToClientXY);
+	container.addEventListener("touchmove", event => movePointLightToClientXY(event.touches[0]));
 
 	window.onresize = () => {
 		camera.aspect = window.innerWidth / window.innerHeight;
