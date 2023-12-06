@@ -25,7 +25,7 @@
 
 	const composer = new EffectComposer(renderer);
 	composer.addPass(new RenderPass(scene, camera));
-	composer.addPass(new DotScreenPass());
+	composer.addPass(new DotScreenPass(undefined, undefined, 0.5));
 	composer.addPass(new OutputPass());
 
 	const pointLight = new THREE.PointLight(0xffffff, 10);
