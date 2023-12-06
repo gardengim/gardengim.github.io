@@ -46,8 +46,12 @@
 		composer.render();
 	})();
 
-	function movePointLightToVector2(vector2) {
-		let vector = new THREE.Vector3(vector2.x, vector2.y, 0);
+	function movePointLightToClientXY(event) {
+		let vector = new THREE.Vector3(
+			(event.clientX / window.innerWidth) * 2 - 1,
+			-(event.clientY / window.innerHeight) * 2 + 1,
+			0,
+		);
 		vector.unproject(camera);
 		var dir = vector.sub(camera.position).normalize();
 		var distance = -camera.position.z / dir.z;
