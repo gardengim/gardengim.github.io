@@ -5,6 +5,7 @@
 	import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 	import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass.js";
 	import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
+	import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 	const scene = new THREE.Scene();
 
@@ -14,22 +15,23 @@
 		1,
 		1000,
 	);
+	camera.position.z = 5;
 
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
+	const canvas = renderer.domElement;
 	const container = document.getElementById("scene-container");
-	container.appendChild(renderer.domElement);
+	container.appendChild(canvas);
 
 	const composer = new EffectComposer(renderer);
 	composer.addPass(new RenderPass(scene, camera));
 	composer.addPass(new DotScreenPass());
 	composer.addPass(new OutputPass());
 
-	const light = new THREE.PointLight(0xffffff, 10);
-	light.position.set(1, 0.75, 3);
-	scene.add(light);
-	camera.position.z = 5;
+	const pointLight = new THREE.PointLight(0xffffff, 10);
+	scene.add(pointLight);
+	pointLight.position.z = 5;
 
 	const loader = new GLTFLoader();
 	loader.load("models/nike.glb", (gltf) => {
@@ -45,18 +47,24 @@
 		composer.render();
 	})();
 
-	document.onpointermove = (event) => {
-		const mouse = new THREE.Vector2();
-		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-		var vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
+	function movePointLightToVector2(vector2) {
+		let vector = new THREE.Vector3(vector2.x, vector2.y, 0);
 		vector.unproject(camera);
 		var dir = vector.sub(camera.position).normalize();
 		var distance = -camera.position.z / dir.z;
 		var pos = camera.position.clone().add(dir.multiplyScalar(distance));
+		pos.z += 3.25;
 
-		light.position.copy(new THREE.Vector3(pos.x, pos.y, pos.z + 3));
+		pointLight.position.copy(pos);
+	}
+
+	container.parentElement.onmousemove = (event) => {
+		movePointLightToVector2(
+			new THREE.Vector2(
+				(event.clientX / window.innerWidth) * 2 - 1,
+				-(event.clientY / window.innerHeight) * 2 + 1,
+			),
+		);
 	};
 
 	window.onresize = () => {
