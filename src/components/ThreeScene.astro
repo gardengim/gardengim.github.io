@@ -1,0 +1,69 @@
+<script>
+	import * as THREE from "three";
+	import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+	import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+	import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+	import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass.js";
+	import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
+
+	const scene = new THREE.Scene();
+
+	const camera = new THREE.PerspectiveCamera(
+		70,
+		window.innerWidth / window.innerHeight,
+		1,
+		1000,
+	);
+
+	const renderer = new THREE.WebGLRenderer();
+	renderer.setSize(window.innerWidth, window.innerHeight);
+
+	const container = document.getElementById("scene-container");
+	container.appendChild(renderer.domElement);
+
+	const composer = new EffectComposer(renderer);
+	composer.addPass(new RenderPass(scene, camera));
+	composer.addPass(new DotScreenPass());
+	composer.addPass(new OutputPass());
+
+	const light = new THREE.PointLight(0xffffff, 10);
+	light.position.set(1, 0.75, 3);
+	scene.add(light);
+	camera.position.z = 5;
+
+	const loader = new GLTFLoader();
+	loader.load("models/nike.glb", (gltf) => {
+		const model = gltf.scene;
+		model.rotation.set(0, (Math.random() * 0.75 - 0.25) * Math.PI, 0);
+		model.scale.set(0.05, 0.05, 0.05);
+		model.position.set(0, -0.75, 0);
+		scene.add(model);
+	});
+
+	(function animate() {
+		requestAnimationFrame(animate);
+		composer.render();
+	})();
+
+	document.onpointermove = (event) => {
+		const mouse = new THREE.Vector2();
+		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+		var vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
+		vector.unproject(camera);
+		var dir = vector.sub(camera.position).normalize();
+		var distance = -camera.position.z / dir.z;
+		var pos = camera.position.clone().add(dir.multiplyScalar(distance));
+
+		light.position.copy(new THREE.Vector3(pos.x, pos.y, pos.z + 3));
+	};
+
+	window.onresize = () => {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	};
+</script>
+
+<div id="scene-container" style="overflow:hidden"></div>
