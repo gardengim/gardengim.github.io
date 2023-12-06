@@ -1,7 +1,14 @@
 ---
 import Base from "@layouts/Base.astro";
+
+import ThreeScene from "@components/ThreeScene.astro";
 ---
 
 <Base>
-	<h1>Garden Gim</h1>
+	<div style="display:flex;align-items:center;justify-content:center">
+		<ThreeScene style="position:absolute" />
+		<span style="position:absolute;text-align:center;font-size:4em;font-weight:bold;mix-blend-mode:difference;color:#FFF">
+			Garden Gim
+		</span>
+	</div>
 </Base>
