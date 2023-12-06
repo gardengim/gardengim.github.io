@@ -19,9 +19,7 @@
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
 	const container = document.getElementById("scene-container");
-	if (container) {
-		container.appendChild(renderer.domElement);
-	}
+	container.appendChild(renderer.domElement);
 
 	const composer = new EffectComposer(renderer);
 	composer.addPass(new RenderPass(scene, camera));
