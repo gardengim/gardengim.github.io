@@ -23,6 +23,11 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
+      - name: Cache DENO_DIR
+        uses: actions/cache@v3
+        with:
+          path: ${{env.DENO_DIR}}
+          key: ${{ runner.os }}-deno-${{ hashFiles('deno.lock') }}
       - name: Build with Lume
         run: deno task build
       - name: Upload artifact
