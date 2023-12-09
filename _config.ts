@@ -1,6 +1,6 @@
 import lume from "lume/mod.ts";
 import code_highlight from "lume/plugins/code_highlight.ts";
-import jsx from "lume/plugins/jsx.ts";
+import jsx from "lume/plugins/jsx_preact.ts";
 
 const site = lume({
 	src: "src",
