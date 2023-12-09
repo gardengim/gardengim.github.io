@@ -1,11 +1,23 @@
 import lume from "lume/mod.ts";
 import jsx from "lume/plugins/jsx_preact.ts";
+import nav from "lume/plugins/nav.ts";
+import postcss from "lume/plugins/postcss.ts";
+import tailwindcss from "lume/plugins/tailwindcss.ts";
+import typography from "npm:@tailwindcss/typography";
 
 const site = lume({
 	src: "src",
 	location: new URL("https://gim.garden"),
 });
 
-site.use(jsx());
+site.use(jsx())
+	.use(nav())
+	.use(tailwindcss({
+		extensions: [".html", ".jsx"],
+		options: {
+			plugins: [typography]
+		}
+	}))
+	.use(postcss());
 
 export default site;
