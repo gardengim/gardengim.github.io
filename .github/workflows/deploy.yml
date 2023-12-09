@@ -26,7 +26,7 @@ jobs:
       - name: Cache DENO_DIR
         uses: actions/cache@v3
         with:
-          path: ${{env.DENO_DIR}}
+          path: ~/.cache/deno
           key: ${{ runner.os }}-deno-${{ hashFiles('deno.lock') }}
       - name: Build with Lume
         run: deno task build
