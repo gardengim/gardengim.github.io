@@ -9,21 +9,22 @@ export default ({ title, children, nav, url }) => (
       <link rel="stylesheet" href="/main.css" />
       <title>{title}</title>
     </head>
-    <body>
-      <nav>
-        <a href="/">Garden Gim</a>
-        <Explorer nav={nav} url={url} />
-      </nav>
-      <main class="border-x-2 font-serif">
-        <header>
-          <H0>{title}</H0>
-        </header>
+    <body class="flex justify-center h-screen">
+      <div class="flex-grow flex justify-end bg-red-300">
+        <div class="w-fit">
+          whatever
+        </div>
+      </div>
+      <div class="w-[54rem] bg-green-300 font-serif">
         <article class="prose">
-          {children}
+          hellllo
         </article>
-        <footer>
-        </footer>
-      </main>
+      </div>
+      <div class="flex-grow bg-blue-300">
+        <div>
+          whatever
+        </div>
+      </div>
     </body>
   </html>
 );
