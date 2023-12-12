@@ -14,9 +14,12 @@ export default ({ children, nav, title, toc, url }) => (
       <div class="w-[18rem] bg-red-300">
         <Explorer nav={nav} url={url} />
       </div>
-      <div class="w-[54rem] bg-green-300 font-serif">
+      <div class="w-[56rem] bg-green-300 font-serif overflow-auto">
+        <header>
+          <H0>{title}</H0>
+        </header>
         <article class="prose">
-          hellllo
+          {children}
         </article>
       </div>
       <div class="w-[18rem] bg-blue-300">
