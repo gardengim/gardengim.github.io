@@ -1,7 +1,7 @@
 import Explorer from "./components/Explorer.jsx";
 import H0 from "./components/H0.jsx";
 
-export default ({ title, children, nav, url }) => (
+export default ({ children, nav, title, toc, url }) => (
   <html>
     <head>
       <meta charset="utf-8" />
