@@ -11,10 +11,8 @@ export default ({ children, nav, title, toc, url }) => (
       <title>{title}</title>
     </head>
     <body class="flex justify-center h-screen">
-      <div class="flex-grow flex justify-end bg-red-300">
-        <div class="w-fit">
-          whatever
-        </div>
+      <div class="w-[18rem] bg-red-300">
+        <Explorer nav={nav} url={url} />
       </div>
       <div class="w-[54rem] bg-green-300 font-serif">
         <article class="prose">
