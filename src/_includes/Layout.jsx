@@ -1,5 +1,6 @@
 import Explorer from "./components/Explorer.jsx";
 import H0 from "./components/H0.jsx";
+import Outline from "./components/Outline.jsx";
 
 export default ({ children, nav, title, toc, url }) => (
   <html>
@@ -20,10 +21,8 @@ export default ({ children, nav, title, toc, url }) => (
           hellllo
         </article>
       </div>
-      <div class="flex-grow bg-blue-300">
-        <div>
-          whatever
-        </div>
+      <div class="w-[18rem] bg-blue-300">
+        <Outline toc={toc} />
       </div>
     </body>
   </html>
