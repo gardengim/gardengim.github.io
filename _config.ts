@@ -3,6 +3,9 @@ import jsx from "lume/plugins/jsx_preact.ts";
 import nav from "lume/plugins/nav.ts";
 import postcss from "lume/plugins/postcss.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
+
+import toc from "lume_markdown_plugins/toc.ts";
+
 import typography from "npm:@tailwindcss/typography";
 
 const site = lume({
@@ -18,6 +21,7 @@ site.use(jsx())
 			plugins: [typography]
 		}
 	}))
-	.use(postcss());
+	.use(postcss())
+	.use(toc({ level: 1 }))
 
 export default site;
