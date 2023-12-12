@@ -1,6 +1,6 @@
-export default ({ url, nav }) => {
+export default ({ nav, url }) => {
   const renderTree = (node) => (
-    <ul>
+    <ul class="ml-2">
       {node.children.map((child) => (
         <li>
           {child.data
@@ -16,8 +16,5 @@ export default ({ url, nav }) => {
       ))}
     </ul>
   );
-
-  return (
-    renderTree(nav.menu())
-  );
+  return renderTree(nav.menu());
 };
