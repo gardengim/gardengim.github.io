@@ -12,6 +12,15 @@ export default ({ children, nav, title, toc, url }) => (
       <title>{title || url}</title>
     </head>
     <body class="w-screen h-screen">
+      <div class="relative mx-auto w-[80rem] h-full">
+        <div class="absolute flex justify-center top-0 wh-full">
+          <div class="grow h-full bg-red-300"></div>
+          <div class="w-0 xl:w-[48rem] h-full bg-green-300"></div>
+          <div class="grow h-full bg-blue-300"></div>
+        </div>
+        <div class="absolute top-0">
+        </div>
+      </div>
     </body>
   </html>
 );

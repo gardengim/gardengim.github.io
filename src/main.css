@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-	@apply xl:w-0.5 xl:h-0.5
-}
-
-::-webkit-scrollbar-thumb {
-	@apply xl:bg-black xl:rounded-full xl:border-2
+.wh-full {
+	@apply w-full h-full;
 }
