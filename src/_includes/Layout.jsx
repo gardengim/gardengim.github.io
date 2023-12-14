@@ -1,5 +1,5 @@
 import LeftNav from "./components/LeftNav.jsx";
-import Main from "./components/Main.jsx";
+import Article from "./components/Article.jsx";
 import RightNav from "./components/RightNav.jsx";
 
 export default ({ children, nav, title, toc, url }) => (
@@ -12,13 +12,19 @@ export default ({ children, nav, title, toc, url }) => (
       <title>{title || url}</title>
     </head>
     <body class="w-screen h-screen">
-      <div class="relative mx-auto w-[80rem] h-full">
-        <div class="absolute flex justify-center top-0 wh-full">
-          <div class="grow h-full bg-red-300"></div>
-          <div class="w-0 xl:w-[48rem] h-full bg-green-300"></div>
-          <div class="grow h-full bg-blue-300"></div>
+      <div class="relative mx-auto wh-full max-w-screen-xl">
+        <div class="absolute top-0 z-10 relative wh-full overflow-hidden">
+          <div class="absolute w-64 h-full shrink-0 left-0">
+            <LeftNav nav={nav} url={url} />
+          </div>
+          <div class="absolute w-64 h-full shrink-0 right-0">
+            <RightNav toc={toc} top={title || url} />
+          </div>
         </div>
-        <div class="absolute top-0">
+        <div class="absolute top-0 wh-full">
+          <main class="wh-full max-w-screen-md mx-auto">
+            <Article children={children} title={title} url={url} />
+          </main>
         </div>
       </div>
     </body>

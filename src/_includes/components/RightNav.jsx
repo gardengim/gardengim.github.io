@@ -3,7 +3,7 @@ const renderTree = (contents) => (
     {contents.map((content) => (
       <li>
         <a href={`#${content.slug}`}>
-          <div class="">{content.text}</div>
+          <div class="break-words">{content.text}</div>
         </a>
         {content.children && renderTree(content.children)}
       </li>
@@ -12,10 +12,7 @@ const renderTree = (contents) => (
 );
 
 export default ({ toc, top }) => (
-  <nav
-    id="right-nav"
-    class=""
-  >
+  <nav id="right-nav">
     <div class="">
       <a href="#top">
         <div class="break-words">{top}</div>

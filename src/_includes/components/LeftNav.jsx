@@ -5,7 +5,7 @@ export default ({ nav, url }) => {
         return (
           <li>
             <a href={child.data && child.data.url}>
-              <div class="">
+              <div class="break-words">
                 {child.data && child.data.title || child.slug}
               </div>
             </a>
