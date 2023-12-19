@@ -11,7 +11,8 @@ export default ({ children, nav, title, toc, url }) => (
       <title>{title}</title>
       <script src="/main.js" inline></script>
     </head>
-    <body class="bg-stone-100 dark:bg-stone-900">
+
+    <body class="bg-stone-100 dark:bg-stone-900 overflow-hidden">
       <div class="relative w-screen max-w-screen-xl h-screen mx-auto overflow-hidden">
         <div class="flex absolute h-full left-0">
           <nav
@@ -23,12 +24,13 @@ export default ({ children, nav, title, toc, url }) => (
             </div>
           </nav>
           <div class="flex border-l-2 border-stone-300 dark:border-stone-700 border-inherit">
-            <input type="checkbox" id="left-nav-toggle" />
+            <input type="checkbox" id="left-nav-toggle" class="h-full" />
           </div>
         </div>
+
         <div class="flex absolute h-full bg-inherit border-inherit right-0">
           <div class="flex border-r-2 border-stone-300 dark:border-stone-700">
-            <input type="checkbox" id="right-nav-toggle" />
+            <input type="checkbox" id="right-nav-toggle" class="h-full" />
           </div>
           <nav
             id="right-nav"
@@ -39,6 +41,7 @@ export default ({ children, nav, title, toc, url }) => (
             </div>
           </nav>
         </div>
+
         <div class="h-full max-w-screen-md mx-auto">
           <div class="h-full mx-4 overflow-auto">
             <Article children={children} title={title || url} />
