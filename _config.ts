@@ -1,6 +1,7 @@
 import lume from "lume/mod.ts";
 import inline from "lume/plugins/inline.ts";
 import jsx from "lume/plugins/jsx_preact.ts";
+import minifyHTML from "lume/plugins/minify_html.ts";
 import nav from "lume/plugins/nav.ts";
 import postcss from "lume/plugins/postcss.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
@@ -13,6 +14,7 @@ const site = lume({
 
 site.use(inline())
 	.use(jsx())
+	.use(minifyHTML())
 	.use(nav())
 	.use(tailwindcss({
 		extensions: [".html", ".jsx"],
