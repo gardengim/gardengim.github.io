@@ -2,7 +2,7 @@ import LeftPanel from "./_components/LeftPanel.jsx";
 import Article from "./_components/Article.jsx";
 import RightPanel from "./_components/RightPanel.jsx";
 
-export default ({ title, children, nav, url }) => (
+export default ({ children, nav, title, toc, url }) => (
   <html>
     <head>
       <meta charset="utf-8" />
