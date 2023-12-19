@@ -5,6 +5,7 @@ import minifyHTML from "lume/plugins/minify_html.ts";
 import nav from "lume/plugins/nav.ts";
 import postcss from "lume/plugins/postcss.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
+import toc from "lume_markdown_plugins/toc.ts";
 import typography from "npm:@tailwindcss/typography";
 
 const site = lume({
@@ -21,6 +22,9 @@ site.use(inline())
 		options: {
 			plugins: [typography]
 		}
+	}))
+	.use(toc({
+		level: 1
 	}))
 	.use(postcss());
 
