@@ -1,4 +1,5 @@
 import lume from "lume/mod.ts";
+import inline from "lume/plugins/inline.ts";
 import jsx from "lume/plugins/jsx_preact.ts";
 import nav from "lume/plugins/nav.ts";
 import postcss from "lume/plugins/postcss.ts";
@@ -10,7 +11,8 @@ const site = lume({
 	location: new URL("https://gim.garden"),
 });
 
-site.use(jsx())
+site.use(inline())
+	.use(jsx())
 	.use(nav())
 	.use(tailwindcss({
 		extensions: [".html", ".jsx"],
