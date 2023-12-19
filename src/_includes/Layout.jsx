@@ -1,5 +1,6 @@
-import Explorer from "./components/Explorer.jsx";
-import H0 from "./components/H0.jsx";
+import LeftPanel from "./_components/LeftPanel.jsx";
+import Article from "./_components/Article.jsx";
+import RightPanel from "./_components/RightPanel.jsx";
 
 export default ({ title, children, nav, url }) => (
   <html>
