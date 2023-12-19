@@ -9,6 +9,7 @@ export default ({ title, children, nav, url }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="/main.css" />
       <title>{title}</title>
+      <script src="/main.js" inline></script>
     </head>
     <body class="bg-stone-100 dark:bg-stone-900">
       <div class="relative w-screen max-w-screen-xl h-screen mx-auto overflow-hidden">
