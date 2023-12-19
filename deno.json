@@ -6,6 +6,7 @@
   },
   "imports": {
     "lume/": "https://deno.land/x/lume@v2.0.1/",
+    "lume_markdown_plugins/": "https://deno.land/x/lume_markdown_plugins/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
