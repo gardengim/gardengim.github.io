@@ -1,5 +1,6 @@
 import lume from "lume/mod.ts";
 
+import basePath from "lume/plugins/base_path.ts";
 import inline from "lume/plugins/inline.ts";
 import jsx from "lume/plugins/jsx_preact.ts";
 import minifyHTML from "lume/plugins/minify_html.ts";
@@ -16,7 +17,8 @@ const site = lume({
 	location: new URL("https://gim.garden"),
 });
 
-site.use(inline())
+site.use(basePath())
+	.use(inline())
 	.use(jsx())
 	.use(minifyHTML())
 	.use(nav())
