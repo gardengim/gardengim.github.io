@@ -1,3 +1,0 @@
----
-title: gardengim.github.io
----
