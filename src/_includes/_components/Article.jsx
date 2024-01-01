@@ -9,6 +9,7 @@ export default ({ children, title }) => (
     {children}
     <footer>
       <hr />
+      <a href="https://github.com/gardengim">GitHub</a>
     </footer>
   </article>
 );
